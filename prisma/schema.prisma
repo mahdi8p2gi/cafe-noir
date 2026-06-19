@@ -1,0 +1,120 @@
+// Prisma schema - Café Noir coffee shop
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String
+  role          String    @default("USER") // USER | ADMIN
+  emailVerified Boolean   @default(false)
+  phone         String?
+  avatar        String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  orders      Order[]
+  reviews     Review[]
+  wishlist    WishlistItem[]
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  icon        String?
+  createdAt   DateTime  @default(now())
+
+  products    Product[]
+}
+
+model Product {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String
+  longDescription String?
+  price       Int       // toman
+  discountPrice Int?
+  image       String
+  gallery     String?   // comma separated extra images
+  roastLevel  String?   // LIGHT | MEDIUM | DARK
+  origin      String?
+  weight      String?
+  stock       Int       @default(0)
+  sku         String?
+  rating      Float     @default(0)
+  reviewCount Int       @default(0)
+  featured    Boolean   @default(false)
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  categoryId  String
+  category    Category  @relation(fields: [categoryId], references: [id])
+
+  reviews     Review[]
+  wishlistItems WishlistItem[]
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id          String    @id @default(cuid())
+  orderNumber String    @unique
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  status      String    @default("PENDING") // PENDING | PROCESSING | SHIPPED | DELIVERED | CANCELLED
+  total       Int
+  subtotal    Int
+  shipping    Int       @default(0)
+  address     String
+  city        String
+  postalCode  String?
+  phone       String
+  notes       String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  items       OrderItem[]
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  name      String
+  price     Int
+  quantity  Int
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  rating    Int      // 1-5
+  comment   String
+  createdAt DateTime @default(now())
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
