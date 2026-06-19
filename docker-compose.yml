@@ -1,0 +1,87 @@
+# ===========================
+# Café Noir — Docker Compose
+# Production-ready multi-service setup
+# ===========================
+
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cafe-noir-app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=file:./db/production.db
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-change-this-in-production}
+      - NEXTAUTH_URL=${NEXTAUTH_URL:-http://localhost:3000}
+      # - ZAI_API_KEY=${ZAI_API_KEY}
+      # - SMTP_HOST=${SMTP_HOST}
+      # - SMTP_PORT=${SMTP_PORT}
+      # - SMTP_USER=${SMTP_USER}
+      # - SMTP_PASSWORD=${SMTP_PASSWORD}
+      # - SMTP_FROM=${SMTP_FROM}
+    volumes:
+      - app-db:/app/db
+      - app-uploads:/app/upload
+    networks:
+      - cafe-noir-net
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Uncomment for PostgreSQL production setup
+  # db:
+  #   image: postgres:16-alpine
+  #   container_name: cafe-noir-db
+  #   restart: unless-stopped
+  #   environment:
+  #     - POSTGRES_USER=${POSTGRES_USER:-cafenoir}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-change-this}
+  #     - POSTGRES_DB=${POSTGRES_DB:-cafenoir}
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - cafe-noir-net
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cafenoir}"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # Caddy reverse proxy (optional - for HTTPS)
+  # proxy:
+  #   image: caddy:2-alpine
+  #   container_name: cafe-noir-proxy
+  #   restart: unless-stopped
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./Caddyfile:/etc/caddy/Caddyfile
+  #     - caddy-data:/data
+  #     - caddy-config:/config
+  #   networks:
+  #     - cafe-noir-net
+  #   depends_on:
+  #     - app
+
+volumes:
+  app-db:
+  app-uploads:
+  # postgres-data:
+  # caddy-data:
+  # caddy-config:
+
+networks:
+  cafe-noir-net:
+    driver: bridge

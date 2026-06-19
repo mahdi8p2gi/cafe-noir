@@ -1,0 +1,51 @@
+# Build artifacts
+.next
+out
+build
+dist
+
+# Dependencies
+node_modules
+
+# Logs
+*.log
+dev.log
+server.log
+image-gen.log
+
+# Environment
+.env
+.env*.local
+
+# Database
+db/*.db
+db/*.db-journal
+
+# Uploads & downloads
+upload
+download
+
+# Git & docs
+.git
+.gitignore
+.github
+docs
+*.md
+!README.md
+LICENSE
+
+# IDE
+.vscode
+.idea
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+scripts
+examples
+mini-services
+preview-*.png
+*.tmp

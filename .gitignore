@@ -1,6 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# ===========================
+# Dependencies
+# ===========================
 node_modules
 /.pnp
 .pnp.*
@@ -9,46 +9,93 @@ node_modules
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+bun.lockb
 
-# testing
-/coverage
-
-# next.js
+# ===========================
+# Build output
+# ===========================
 /.next/
 /out/
-
-# production
 /build
+/dist
+*.tsbuildinfo
+next-env.d.ts
 
-# misc
-.DS_Store
-*.pem
+# ===========================
+# Production
+# ===========================
+/.next/standalone
+/.next/cache
 
-# debug
+# ===========================
+# Environment
+# ===========================
+.env
+.env*.local
+.env.development
+.env.production
+.env.test
+!.env.example
+
+# ===========================
+# Database
+# ===========================
+db/*.db
+db/*.db-journal
+db/*.sqlite
+db/*.sqlite3
+/prisma/migrations/dev.db*
+
+# ===========================
+# Logs
+# ===========================
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-local-*
-.claude
-.z-ai-config
-*.log
+pnpm-debug.log*
+bun-debug.log*
 dev.log
-dev.out.log
-test
-prompt
-
 server.log
-# Skills directory
-/skills/
+image-gen.log
+
+# ===========================
+# Testing
+# ===========================
+/coverage
+.nyc_output
+
+# ===========================
+# Misc
+# ===========================
+.DS_Store
+*.pem
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+*.swp
+*.swo
+*~
+
+# ===========================
+# Uploads / Generated
+# ===========================
+/upload
+/download
+*.tmp
+*.bak
+
+# ===========================
+# Preview screenshots (keep tracked in docs/)
+# ===========================
+preview-*.png
+
+# ===========================
+# OS / Editor
+# ===========================
+.directory
+.Trash-*
+$RECYCLE.BIN/
