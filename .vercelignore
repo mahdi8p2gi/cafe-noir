@@ -1,0 +1,57 @@
+# Vercel ignore file — excludes files not needed for deployment
+
+# Dependencies
+node_modules
+
+# Build artifacts
+.next
+out
+build
+dist
+
+# Database (local SQLite — not for production)
+db/*.db
+db/*.db-journal
+
+# Logs
+*.log
+dev.log
+server.log
+image-gen.log
+
+# Environment (keep .env.example, ignore actual .env)
+.env
+.env*.local
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sandbox-specific
+.zscripts
+examples
+mini-services
+download
+upload
+skills
+worklog.md
+preview-*.png
+
+# Git
+.git
+.gitignore
+
+# Docker (not needed on Vercel)
+Dockerfile
+docker-compose.yml
+.dockerignore
+Caddyfile
+
+# Docs (optional to deploy, but keep for reference)
+# Uncomment to exclude docs from deployment
+# docs
+# *.md
