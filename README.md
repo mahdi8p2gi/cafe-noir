@@ -344,7 +344,7 @@ This project is licensed under the **MIT License** — see [LICENSE](./LICENSE) 
 
 ## 💬 Support
 
-- 📧 Email: `support@cafenoir.ir`
+- 📧 Email: `themahdikga@gmail.com`
 - 🐛 [Report a bug](https://github.com/your-username/cafe-noir/issues/new?template=bug_report.md)
 - 💡 [Request a feature](https://github.com/your-username/cafe-noir/issues/new?template=feature_request.md)
 
