@@ -276,8 +276,7 @@ DATABASE_URL="file:./db/custom.db"
 NEXTAUTH_SECRET="your-secret-key-here"
 NEXTAUTH_URL="http://localhost:3000"
 
-# Optional: AI image generation
-ZAI_API_KEY="your-zai-api-key"
+
 ```
 
 ---
@@ -345,8 +344,8 @@ This project is licensed under the **MIT License** — see [LICENSE](./LICENSE) 
 ## 💬 Support
 
 - 📧 Email: `themahdikga@gmail.com`
-- 🐛 [Report a bug](https://github.com/your-username/cafe-noir/issues/new?template=bug_report.md)
-- 💡 [Request a feature](https://github.com/your-username/cafe-noir/issues/new?template=feature_request.md)
+- 🐛 [Report a bug](https://github.com/mahdi8p2gi/cafe-noir/issues/new?template=bug_report.md)
+- 💡 [Request a feature](https://github.com/mahdi8p2gi/cafe-noir/issues/new?template=feature_request.md)
 
 ---
 
