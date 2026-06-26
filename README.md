@@ -334,7 +334,6 @@ This project is licensed under the **MIT License** — see [LICENSE](./LICENSE) 
 ## 🙏 Acknowledgments
 
 - 🎨 Design inspired by modern 2026 e‑commerce trends
-- ☕ Coffee imagery generated with [Z.ai Image Generation](https://z.ai)
 - 🧩 UI components by [shadcn/ui](https://ui.shadcn.com/)
 - 🖼️ Icons by [Lucide](https://lucide.dev/)
 - 🔤 Font by [Vazirmatn](https://github.com/rastikerdar/vazirmatn)
@@ -344,7 +343,7 @@ This project is licensed under the **MIT License** — see [LICENSE](./LICENSE) 
 ## 💬 Support
 
 - 📧 Email: `themahdikga@gmail.com`
-- 🐛 [Report a bug](https://github.com/mahdi8p2gi/cafe-noir/issues/new?template=bug_report.md)
+- 🐛 [Report a bug]https://github.com/mahdi8p2gi/cafe-noir/issues 
 - 💡 [Request a feature](https://github.com/mahdi8p2gi/cafe-noir/issues/new?template=feature_request.md)
 
 ---
