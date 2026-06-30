@@ -4,7 +4,6 @@
 
 ### A Premium, Modern Coffee E‑Commerce Platform
 
-**فروشگاه آنلاین قهوه تخصصی — تجربه‌ای مدرن، سریع و حرفه‌ای**
 
 [![Next.js](https://img.shields.io/badge/Next.js%2016-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React%2019-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
@@ -24,7 +23,6 @@
 
 **Café Noir** is a production‑ready, full‑stack e‑commerce platform for specialty coffee. Built with the modern Next.js 16 stack, it delivers a premium shopping experience with a Persian (RTL) interface, glass‑morphism design, smooth animations, and a complete admin dashboard.
 
-> طراحی شده با عشق برای عاشقان قهوه — از مزرعه تا فنجان شما.
 
 ---
 
@@ -350,7 +348,6 @@ This project is licensed under the **MIT License** — see [LICENSE](./LICENSE) 
 
 <div align="center">
 
-**ساخته شده با ☕ و ❤️**
 
 Made with ☕ and ❤️ by the Café Noir team
 
